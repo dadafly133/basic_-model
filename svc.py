@@ -9,16 +9,7 @@ import numpy as np
 big_five_trait_class = pd.read_csv("/home/dadafly/datasets/mobile_phone/big_five_trait_class.csv")
 usage_data = pd.read_csv("/home/dadafly/datasets/mobile_phone/usage_com_data.csv")
 
-big_five_trait_class = big_five_trait_class.replace("low", 0)
-# big_five_trait_class = big_five_trait_class.replace("moderate", 1)
-big_five_trait_class = big_five_trait_class.replace("high", 1)
-
-trait_class_openness 			= big_five_trait_class["openness"]
-trait_class_agreeableness 		= big_five_trait_class["agreeableness"]
-trait_class_conscientiousness 	= big_five_trait_class["conscientiousness"]
-trait_class_extraversion 		= big_five_trait_class["extraversion"]
-trait_class_neuroricism 		= big_five_trait_class["neuroricism"]
-
+trait_class_openness = big_five_trait_class["openness"]
 
 from sklearn.decomposition import TruncatedSVD
 svd = TruncatedSVD(n_components=5, n_iter=7, random_state=42)
@@ -28,11 +19,7 @@ usage_data_reduced = svd.fit_transform(usage_data)
 ###############################
 from sklearn.cross_validation import train_test_split
 
-X_train, X_test, y_train, y_test = train_test_split(usage_data_reduced, trait_class_openness,			test_size=0.25, random_state=33)
-# X_train, X_test, y_train, y_test = train_test_split(usage_data_reduced, trait_class_agreeableness, 	 	test_size=0.25, random_state=33)
-# X_train, X_test, y_train, y_test = train_test_split(usage_data, trait_class_conscientiousness,	test_size=0.25, random_state=33)
-# X_train, X_test, y_train, y_test = train_test_split(usage_data, trait_class_extraversion, 	 	test_size=0.25, random_state=33)
-# X_train, X_test, y_train, y_test = train_test_split(usage_data, trait_class_neuroricism,		test_size=0.25, random_state=33)
+X_train, X_test, y_train, y_test = train_test_split(usage_data_reduced, trait_class_openness, test_size=0.25, random_state=33)
 
 ###############################
 # normalization  

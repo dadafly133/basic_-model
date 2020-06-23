@@ -10,25 +10,13 @@ big_five_trait_class = pd.read_csv("/home/dadafly/datasets/mobile_phone/big_five
 usage_data = pd.read_csv("/home/dadafly/datasets/mobile_phone/usage_com_data.csv")
 
 trait_class_openness 			= big_five_trait_class["openness"]
-trait_class_agreeableness 		= big_five_trait_class["agreeableness"]
-trait_class_conscientiousness 	= big_five_trait_class["conscientiousness"]
-trait_class_extraversion 		= big_five_trait_class["extraversion"]
-trait_class_neuroricism 		= big_five_trait_class["neuroricism"]
-
-#print(usage_data.shape)
-#print(usage_data.head())
-#print(np.max(trait_openness), np.min(trait_openness), np.mean(trait_openness))
 
 ###############################
 # train test split 
 ###############################
 from sklearn.cross_validation import train_test_split
 
-# X_train, X_test, y_train, y_test = train_test_split(usage_data, trait_class_openness,			test_size=0.25, random_state=33)
-# X_train, X_test, y_train, y_test = train_test_split(usage_data, trait_class_agreeableness, 	 	test_size=0.25, random_state=33)
-# X_train, X_test, y_train, y_test = train_test_split(usage_data, trait_class_conscientiousness,	test_size=0.25, random_state=33)
-# X_train, X_test, y_train, y_test = train_test_split(usage_data, trait_class_extraversion, 	 	test_size=0.25, random_state=33)
-X_train, X_test, y_train, y_test = train_test_split(usage_data, trait_class_neuroricism,		test_size=0.25, random_state=33)
+X_train, X_test, y_train, y_test = train_test_split(usage_data, trait_class_opennes, test_size=0.25, random_state=33)
 
 ###############################
 # normalization  
